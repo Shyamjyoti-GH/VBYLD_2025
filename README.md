@@ -49,7 +49,7 @@ This project is configured to run directly as a static web application.
 
 3.  **Firebase Configuration:**
     - Create a new file at `public/firebase-config.js`.
-    - Inside this file, add your Firebase project's configuration details. It should export the initialized Firebase app.
+    - Inside this file, add your Firebase project\'s configuration details. It should export the initialized Firebase app.
 
     ```javascript
     // public/firebase-config.js
@@ -57,7 +57,7 @@ This project is configured to run directly as a static web application.
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-    // Your web app's Firebase configuration
+    // Your web app\'s Firebase configuration
     const firebaseConfig = {
       apiKey: "YOUR_API_KEY",
       authDomain: "YOUR_AUTH_DOMAIN",
@@ -74,7 +74,7 @@ This project is configured to run directly as a static web application.
 
 4.  **Run the Application:**
     - Open the `public/index.html` file in your web browser.
-    - For the best experience (to avoid CORS issues with local file access), serve the `public` directory using a local web server extension, such as VS Code's "Live Server".
+    - For the best experience (to avoid CORS issues with local file access), serve the `public` directory using a local web server extension, such as VS Code\'s "Live Server".
 
 ## 📁 Project Structure
 
