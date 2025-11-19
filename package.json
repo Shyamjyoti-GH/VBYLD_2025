@@ -1,0 +1,9 @@
+{
+  "name": "ai-pm-internship-server",
+  "version": "1.0.0",
+  "description": "Server-side scripts for the AI PM Internship project.",
+  "main": "seed-database.js",
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html style.css main.js filter.js firebase-config.js dist/"
+  }
+}

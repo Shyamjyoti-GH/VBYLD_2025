@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM Internship Recommendation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <button id="open-popup-btn">
+        &#128171;
+    </button>
+
+    <popup-modal id="recommendation-popup">
+        <!-- New Survey Wizard -->
+        <div class="survey-wizard">
+            <div class="survey-step active" data-step="1">
+                <h2>Welcome to PM Recommendation</h2>
+                <p>To view your recommendations, please select them.</p>
+                <button class="next-btn">Next</button>
+            </div>
+            <div class="survey-step" data-step="2">
+                <h2>What course are you currently enrolled in?</h2>
+                <select id="course-input">
+                    <option>Bachelor of Technology (B.Tech)</option>
+                    <option>Bachelor of Arts (B.A.)</option>
+                    <option>Bachelor of Science (B.Sc.)</option>
+                    <option>Master of Technology (M.Tech)</option>
+                    <option>Master of Arts (M.A.)</option>
+                    <option>Master of Science (M.Sc.)</option>
+                </select>
+                <button class="back-btn">Back</button>
+                <button class="next-btn">Next</button>
+            </div>
+            <div class="survey-step" data-step="3">
+                <h2>Tell us a bit about yourself</h2>
+                <input type="text" id="name-input" placeholder="Your Name">
+                <input type="text" id="language-input" placeholder="Language">
+                <select id="gender-input">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+                <button class="back-btn">Back</button>
+                <button class="next-btn">Next</button>
+            </div>
+            <div class="survey-step" data-step="4">
+                <h2>What is your location?</h2>
+                <input type="text" id="location-input" placeholder="Location of stay or college (e.g., Delhi, India)">
+                <button class="back-btn">Back</button>
+                <button class="next-btn">Next</button>
+            </div>
+            <div class="survey-step" data-step="5">
+                <h2>What type of internship are you looking for?</h2>
+                <p>This helps us narrow down the search.</p>
+                <select id="internship-type-input">
+                    <option>All</option>
+                    <option>Paid</option>
+                    <option>Unpaid</option>
+                    <option>Full-time</option>
+                    <option>Part-time</option>
+                </select>
+                <button class="back-btn">Back</button>
+                <button class="next-btn">Next</button>
+            </div>
+            <div class="survey-step" data-step="6">
+                <h2>What skills are you looking for?</h2>
+                <input type="text" id="skills-input" placeholder="Skills (e.g., Web dev, Machine learning, UI UX)">
+                <button class="back-btn">Back</button>
+                <button class="finish-btn">Finish</button>
+            </div>
+        </div>
+
+        <!-- Main Content View -->
+        <div class="popup-content" style="display: none;">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="https://storage.googleapis.com/deplatform-dev-public/test-images-blueribbon/Xlr8.png" alt="User Avatar" id="sidebar-profile-pic">
+                    <h3 id="profile-name">Aditya Mishra</h3>
+                    <p id="profile-course">CSE Undergrad</p>
+                    <p id="profile-location-text">NERIST, Arunachal Pradesh</p>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" id="profile-link"><i class="fa-solid fa-user"></i> <span>Edit Profile</span></a></li>
+                        <li><a href="#" id="skills-link"><i class="fa-solid fa-puzzle-piece"></i> <span>Skills</span></a></li>
+                        <li><a href="#" id="language-link"><i class="fa-solid fa-globe"></i> <span>Language</span></a></li>
+                        <li><a href="#" id="location-link"><i class="fa-solid fa-location-dot"></i> <span>Location</span></a></li>
+                        <li><a href="#" id="ai-match-link" class="active"><i class="fa-solid fa-brain"></i> <span>AI match Score</span></a></li>
+                        <li><a href="#" id="about-us-link"><i class="fa-solid fa-circle-info"></i> <span>About us</span></a></li>
+                        <li><a href="#" id="download-project-link"><i class="fa-solid fa-download"></i> <span>Download Project</span></a></li>
+                        <li><a href="#" id="logout-link"><i class="fa-solid fa-right-from-bracket"></i> <span>Logout</span></a></li>
+                        <li><a href="#" id="theme-toggle"><i class="fa-solid fa-moon"></i> <span>Dark Mode</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="main-content">
+                 <div class="main-header">
+                    <button id="sidebar-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search for internship">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                </div>
+
+                <!-- View Container -->
+                <div id="view-container">
+                    <div id="ai-match-view">
+                        <div class="filter-tags"></div>
+                        <div id="internship-message-area" style="display: none;"></div>
+                        <div class="internship-list">
+                            <!-- Internship cards will be dynamically inserted here by main.js -->
+                        </div>
+                    </div>
+
+                    <div id="profile-view" class="info-view" style="display: none;">
+                        <div class="info-card">
+                            <div class="info-header"><h2>Edit Profile</h2></div>
+                            <div class="profile-editor">
+                                <div class="profile-pic-editor">
+                                    <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                                    <img src="https://storage.googleapis.com/deplatform-dev-public/test-images-blueribbon/Xlr8.png" alt="User Avatar" id="editor-profile-pic">
+                                    <button class="change-pic-btn">Change Picture</button>
+                                </div>
+                                <div class="profile-form-grid">
+                                    <div class="form-field name">
+                                        <label for="name-edit">Name</label>
+                                        <input type="text" id="name-edit" value="">
+                                    </div>
+                                    <div class="form-field age">
+                                        <label for="age-edit">Age</label>
+                                        <input type="number" id="age-edit" value="">
+                                    </div>
+                                    <div class="form-field gender">
+                                        <label for="gender-edit">Gender</label>
+                                        <select id="gender-edit"><option>Male</option><option>Female</option></select>
+                                    </div>
+                                    <div class="form-field study">
+                                        <label for="study-edit">Field of Study</label>
+                                        <input type="text" id="study-edit" value="">
+                                    </div>
+                                    <div class="form-field stream">
+                                        <label for="stream-edit">Stream of Study</label>
+                                        <input type="text" id="stream-edit" value="">
+                                    </div>
+                                    <div class="form-field college">
+                                        <label for="college-edit">College/School</label>
+                                        <input type="text" id="college-edit" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="save-changes-btn">Save Changes</button>
+                            <div id="save-notification" class="notification" style="display: none;">
+                                &#9989; Profile updated! Refreshing recommendations...
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="skills-view" class="info-view" style="display: none;">
+                        <div class="info-card">
+                            <div class="info-header"><h2>Skills</h2><button class="edit-btn skills-edit-btn"><i class="fa-solid fa-pencil"></i> Edit</button></div>
+                            <div class="display-mode"><p id="skills-display"></p></div>
+                            <div class="edit-mode" style="display:none;">
+                                <input type="text" class="skills-input-edit" placeholder="Enter skills, comma separated">
+                                <button class="save-btn save-changes-btn skills-save-btn">Save</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="language-view" class="info-view" style="display: none;">
+                        <div class="info-card">
+                             <div class="info-header"><h2>Language</h2><button class="edit-btn language-edit-btn"><i class="fa-solid fa-pencil"></i> Edit</button></div>
+                            <div class="display-mode"><p id="language-display"></p></div>
+                            <div class="edit-mode" style="display:none;">
+                                <input type="text" class="language-input-edit" placeholder="Enter language">
+                                <button class="save-btn save-changes-btn language-save-btn">Save</button>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div id="location-view" class="info-view" style="display: none;">
+                        <div class="info-card">
+                            <div class="info-header"><h2>Location</h2><button class="edit-btn location-edit-btn"><i class="fa-solid fa-pencil"></i> Edit</button></div>
+                            <div class="display-mode"><p id="location-display"></p></div>
+                            <div class="edit-mode" style="display:none;">
+                                <input type="text" class="location-input-edit" placeholder="Enter location">
+                                <button class="save-btn save-changes-btn location-save-btn">Save</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="about-us-view" class="info-view" style="display: none;">
+                        <div class="info-card">
+                            <div class="info-header"><h2>About Us</h2></div>
+                            <div class="about-us-content" style="padding: 20px; line-height: 1.6;">
+                                <p><strong>Welcome to the AI-Powered Schemes Recommendation System, your personalized guide to discovering the perfect government internship in India.</strong></p>
+                                <p>This project was born from a simple idea: to bridge the gap between talented students and impactful opportunities within the public sector. We noticed that many aspiring individuals struggle to navigate the vast landscape of government Schemes, internships, often missing out on roles that perfectly match their skills and ambitions. Our mission is to change that.</p>
+                                <p>Developed as a submission for the <strong>VBLYD 2025</strong>, our platform leverages the power of Artificial Intelligence to create a seamless and intelligent matching process. We go beyond simple keyword searches. Our sophisticated algorithm analyzes your unique profile—your skills, academic background, interests, and location preferences—to provide a curated list of internships where you are most likely to succeed and make a real difference.</p>
+                                <h4>Our Vision</h4>
+                                <p>We envision a future where every student has clear visibility into public service opportunities and can easily find a role that kick-starts their career while contributing to the nation's growth. By simplifying the discovery process, we aim to empower the next generation of leaders, innovators, and public servants.</p>
+                                <p>Thank you for using our platform. We're excited to be a part of your journey!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </popup-modal>
+    
+    <!-- Firebase Configuration -->
+    <script type="module" src="firebase-config.js"></script>
+    
+    <!-- This is the ONLY script tag that should be here. -->
+    <!-- It loads main.js as a module, and main.js will import everything else. -->
+    <script type="module" src="main.js"></script>
+</body>
+</html>
