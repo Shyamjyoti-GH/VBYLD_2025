@@ -19,6 +19,12 @@ This application is our initial answer to this challenge. While our current impl
 - **Real-time Database:** Utilizes Google Firestore for storing and retrieving user and internship data instantly.
 - **Dark/Light Mode:** Includes a theme toggler for improved user comfort and accessibility.
 
+## 🌐 Live Demo
+
+**[Click here to view the live application](https://xlr8-ai-based-recmd.web.app)**
+
+> **Note:** For the purpose of this hackathon and the live preview, we have temporarily limited the feature to display **government internships** only. Our broader vision is to expand this platform to include the full spectrum of government schemes, potentially integrating directly with the `mybharat.gov.in` portal if official permissions are granted. Further details about the project's vision and architecture are available in the linked video.
+
 ## 🛠️ Tech Stack
 
 - **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6 Modules)
@@ -49,7 +55,7 @@ This project is configured to run directly as a static web application.
 
 3.  **Firebase Configuration:**
     - Create a new file at `public/firebase-config.js`.
-    - Inside this file, add your Firebase project\'s configuration details. It should export the initialized Firebase app.
+    - Inside this file, add your Firebase project's configuration details. It should export the initialized Firebase app.
 
     ```javascript
     // public/firebase-config.js
@@ -57,7 +63,7 @@ This project is configured to run directly as a static web application.
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-    // Your web app\'s Firebase configuration
+    // Your web app's Firebase configuration
     const firebaseConfig = {
       apiKey: "YOUR_API_KEY",
       authDomain: "YOUR_AUTH_DOMAIN",
@@ -74,7 +80,7 @@ This project is configured to run directly as a static web application.
 
 4.  **Run the Application:**
     - Open the `public/index.html` file in your web browser.
-    - For the best experience (to avoid CORS issues with local file access), serve the `public` directory using a local web server extension, such as VS Code\'s "Live Server".
+    - For the best experience (to avoid CORS issues with local file access), serve the `public` directory using a local web server extension, such as VS Code's "Live Server".
 
 ## 📁 Project Structure
 
